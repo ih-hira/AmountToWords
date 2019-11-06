@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<script type="text/javascript" src="./AmountToWordsBdWithTakaPaisa.js">
+	
+</script>
+</head>
+<body>
+
+<input id="amountField" type="text"  name="amount" onKeyUp="myFunction(this.value)">
+<br>
+<label id="wordLabel"></label>
+
+
+
+</body>
+
+<script>
+function myFunction(val) {
+
+var word = ToWordsBdWithTakaPaisa(val);
+
+var wordLabel = document.getElementById("wordLabel");
+
+wordLabel.innerHTML = word;
+
+}
+</script>
+
+</html>
