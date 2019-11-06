@@ -1,6 +1,6 @@
 
 //Author : Md. Babul Mirdha
-//Date: 14-09-2211
+//Date: 14-09-2011
 
 function  ToWordsBdWithTakaPaisa(s)
 {
