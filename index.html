@@ -5,7 +5,7 @@
     <title>AmountToWords</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Open source web app, to write amount to word in any language">
+    <meta name="description" content="Open source web app, to covert amount to word in any language">
     <meta name="keywords" content="HTML,CSS,JavaScript,Vue.js,Bootstrap4">
     <meta name="author" content="Imtiyaz Hossain, Software Engineer">
 
@@ -15,6 +15,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap Switch Button -->
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
     <!-- Vue.js -->
     <script src="resources/vuejs/development/vue.js"></script>
@@ -29,9 +33,13 @@
         <div class="row">
             <div class="col-md">
                 <div id="app" v-bind:class="theme">
+                    <div style="float: right;" v-on:click="changeLang">
+                        <input type="checkbox" checked data-toggle="toggle" data-on="English" data-off="Bangla" data-onstyle="dark" >
+                    </div>
                     <h1 v-once>{{title}}</h1>
                     <label for="amount">Amount:</label>
-                    <input type="number" class="form-control" id="amount" v-on:input="toWord" v-bind:value="amount">
+                    <input v-if="english" type="number" class="form-control" id="amount" v-on:input="toEnglisWord" v-bind:value="amount">
+                    <input v-else type="number" class="form-control" id="amount" v-on:input="toBanglaWord" v-bind:value="amount">
 
                     <label for="inWord">In Words:</label>
                     <input type="text" class="form-control" id="inWord" v-bind:value="words" disabled>
@@ -53,7 +61,7 @@
         </div>
     </div>
 </body>
-<script src="js/vuejs-obj.js"></script>
-<script src="js/en/AmountToWordsBdWithTakaPaisa.js"></script>
+<script src="js/vue/vuejs-obj.js"></script>
+<script src="js/functions/AmountToWords.js"></script>
 
 </html>
