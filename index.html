@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AmountToWords</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Open source web app, to write amount to word in any language">
+    <meta name="keywords" content="HTML,CSS,JavaScript,Vue.js,Bootstrap4">
+    <meta name="author" content="Imtiyaz Hossain, Software Engineer">
+
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Vue.js -->
+    <script src="resources/vuejs/development/vue.js"></script>
+
+    <!-- Custom css styles -->
+    <link rel="stylesheet" href="/css/themes.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md">
+                <div id="app" v-bind:class="theme">
+                    <h1 v-once>{{title}}</h1>
+                    <label for="amount">Amount:</label>
+                    <input type="number" class="form-control" id="amount" v-on:input="toWord" v-bind:value="amount">
+
+                    <label for="inWord">In Words:</label>
+                    <input type="text" class="form-control" id="inWord" v-bind:value="words" disabled>
+                    
+                    <div class="radio" id="themeOpt">
+                        <label>Choose your theme:</label>
+                        <label><input type="radio" name="theme" value="alice" checked v-on:change="chooseTheme">Alice</label>
+                        <label><input type="radio" name="theme" value="kelly" v-on:change="chooseTheme">Kelly</label>
+                        <label><input type="radio" name="theme" value="coral" v-on:change="chooseTheme">Coral</label>
+                    </div>
+                    <hr>
+                    <div style="text-align: center;">
+                        <a v-bind:href="socialLink.linkedin" target="_blank"><i style="font-size:50px; color:#2266E6; float: inherit;" class="fa fa-linkedin-square"></i></a>
+                        <a v-bind:href="socialLink.github" target="_blank"><i style="font-size:50px; color:#2C3E50; float: inherit;" class="fa fa-github-square"></i></a>
+                    </div>
+                                       
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/vuejs-obj.js"></script>
+<script src="js/en/AmountToWordsBdWithTakaPaisa.js"></script>
+
+</html>
